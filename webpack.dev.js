@@ -19,6 +19,10 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: "./src/index.html",
     }),
+    // new FaviconsWebpackPlugin({
+    //   logo: "/path/to/logo.png",
+    //   outputPath: '/icons',
+    // }),
   ],
   module: {
     rules: [
