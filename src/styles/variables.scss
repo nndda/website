@@ -1,0 +1,53 @@
+$primary: #3ae5f9;
+$secondary: #fc3a78;
+$tertiary: yellow;
+
+$light: #eaeaea;
+$light-l: #eaeaea0e;
+
+// $dark: lighten(#151417, 1%);
+$dark: darken(mix(#0f0407, $primary, 95%), 2%);
+$dark-l: lighten($dark, 2%);
+$dark-l2: lighten($dark, 6%);
+$dark-l3: lighten($dark, 8%);
+
+$shadow: #0009;
+
+$border-color: rgba($light, 0.3);
+
+$label-bg: $light;
+$label-fg: $dark;
+
+
+$g1: linear-gradient(90deg, #3ae5f9, #2a8aec);
+$g2: linear-gradient(90deg, #fc3a78, #b23ee0);
+
+@mixin highlight-marker {
+  background-image: url(https://s2.svgbox.net/pen-brushes.svg?ic=brush-8&color=3ae5f9);
+  margin: -2px -6px;
+  padding: 2px 6px;
+}
+
+@mixin border-bottom-gradient($gradient) {
+  position: relative;
+  &::after {
+    content:"";
+    display: block;
+    position: absolute;
+    height: 1px;
+    width: 100%;
+    bottom: 0;
+    background: $gradient;
+  }
+}
+
+@mixin text-gradient(
+  $angle: 90deg,
+  $start: #fff,
+  $end: #999) {
+  color: $start;
+  background: linear-gradient($angle, $start, $end);
+  background: -webkit-linear-gradient($angle, $start, $end);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
