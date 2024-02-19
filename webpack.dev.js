@@ -1,6 +1,8 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const CopyPlugin = require("copy-webpack-plugin");
 // const FaviconsWebpackPlugin = require("favicons-webpack-plugin");
+
 
 module.exports = {
   mode: "development",
@@ -16,32 +18,12 @@ module.exports = {
     path: path.resolve(__dirname, "dist"),
     clean: true,
   },
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: "./src/index.ejs",
-      filename: "index.html",
-      templateParameters: {
-        icons: require("./src/vendor/icons.js"),
-        // coverBackground: "./arts/cover_bg2.png",
-      },
-    }),
-    // new FaviconsWebpackPlugin({
-    //   logo: "/path/to/logo.png",
-    //   outputPath: '/icons',
-    // }),
-  ],
   module: {
     rules: [
       {
         test: /\.(html)$/i,
         loader: "html-loader",
       },
-      // {
-      //   loader: "file-loader",
-      //   options: {
-      //     esModule: false,
-      //   }
-      // },
       {
         test: /\.tsx?$/,
         use: "ts-loader",
@@ -56,7 +38,6 @@ module.exports = {
       },
       {
         test: /\.(png|webp)$/,
-        // type: "asset/resource",
         use: [
           {
             loader: "file-loader",
@@ -66,14 +47,33 @@ module.exports = {
           }
         ],
       },
-      // {
-      //   test: /\.svg$/,
-      //   loader: "svg-inline-loader",
-      // },
       {
         test: /\.s?css$/i,
         use: ["style-loader", "css-loader", "sass-loader"],
       },
     ]
   },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: "./src/index.ejs",
+      filename: "index.html",
+      templateParameters: {
+        icons: require("./src/vendor/icons.js"),
+        galleryItems: require("./src/scripts/gallery.js"),
+        // coverBackground: "./arts/cover_bg2.png",
+      },
+    }),
+    new CopyPlugin({
+      patterns: [
+        {
+          from: path.resolve(__dirname, "src"),
+          to: path.resolve(__dirname, "dist"),
+        },
+      ],
+    }),
+    // new FaviconsWebpackPlugin({
+    //   logo: "/path/to/logo.png",
+    //   outputPath: '/icons',
+    // }),
+  ],
 }
