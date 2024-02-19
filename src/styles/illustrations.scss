@@ -1,0 +1,11 @@
+@import "variables.scss";
+
+#illustrations {
+  & .section-heading {
+    @include border-bottom-gradient($secondary-gradient);
+    & h1:first-child {
+      @include text-gradient(0deg, #fc3a78, #b23ee0);
+      color: $primary;
+    }
+  }
+}

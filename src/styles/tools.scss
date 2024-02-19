@@ -1,0 +1,55 @@
+@import "variables.scss";
+
+
+
+.skill-info {
+  @for $i from 1 through 5 {
+    & .level:nth-child(#{$i}) {
+      background: mix(
+        #ffffff30, white,
+        percentage( calc($i / 5))
+      );
+    }
+  }
+}
+
+@mixin gradient-fade( $more, $from, $to, $child-target ){
+  $less: rgba($more, 0.1);
+  @for $i from $from + 1 through $to {
+    $i-col: mix(
+      $less, $more,
+      percentage( calc(($i - $from) / $from) )
+      );
+    & #{$child-target}(#{$i}) {
+      color: $i-col;
+    }
+    & #{$child-target}(#{$i}):hover {
+      color: $dark;
+      background: $i-col;
+    }
+  }
+}
+
+
+.skill-lang {
+  $col : white;
+  color: $col;
+  
+  & .label:hover {
+    color: $dark;
+    background: $col;
+  }
+  
+  @include gradient-fade( $col, 4, 8, ".label.fade:nth-of-type" );
+}
+.skill-tool {
+  $col : white;
+  color: $col;
+
+  & .label:hover {
+    color: $dark;
+    background: $col;
+  }
+
+  @include gradient-fade( $col, 4, 7, ".label.fade:nth-of-type" );
+}
