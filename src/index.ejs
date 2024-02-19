@@ -12,7 +12,9 @@
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>ん</text></svg>">
 
   <meta name="author" content="nnda">
-  <meta name="description" content="Hi there, Im a self-proclaimed game developer, front-end web developer, and digital artist.">
+  <meta name="description"
+    content="Hi there, Im a self-proclaimed game developer, front-end web developer, and digital artist/illustrator."
+  >
 
 </head>
 
@@ -29,7 +31,7 @@
   </div>
 
   <div id="intro">
-    <div class="navbar">
+    <div class="navbar hidden">
       <span class="heading">
         <span>ん</span>
       </span>
@@ -48,35 +50,58 @@
         </a>
       </div>
     </div>
-    <div id="intro-cover-container">
-      <img src="arts/cover_bg2.png" data-depth="0.3">
+    <!-- this really shouldnt need that many container, but alas -->
+    <div class="intro-cover-overflow">
+      <div class="intro-cover-container">
+        <div id="intro-cover-images">
+          <img src="arts/cover_bg2.png" data-depth="0.3">
+        </div>
+      </div>
     </div>
     <div class="cover-gradient"></div>
     <div class="cover-overlay">
-      <div class="code-tag-start">&lt;</div>
-      <div class="code-tag-end">/&gt;</div>
-      <div class="sidebar social-links">
-        <div class="code-end">];</div>
-        <div class="links">
-          <a target="_blank" href="" referrerpolicy="origin" rel="nofollow noopener">
-            <%= icons.itchdotio %>
+      <div class="cover-overlay-content">
+        <div class="cover-overlay-heading">
+          <hr>
+          <a href="#projects" class="button-section">
+            <i class="fa-solid fa-hashtag"></i>
+            Projects
           </a>
-          <a target="_blank" href="" referrerpolicy="origin" rel="nofollow noopener">
-            <%= icons.github %>
-          </a>
-          <a target="_blank" href="" referrerpolicy="origin" rel="nofollow noopener">
-            <%= icons.mastodon %>
-          </a>
-          <a target="_blank" href="" referrerpolicy="origin" rel="nofollow noopener">
-            <%= icons.instagram %>
+          <a href="#illustrations" class="button-section">
+            <i class="fa-solid fa-hashtag"></i>
+            Illustrations
           </a>
         </div>
-        <div class="code-start">socials <span class="e">=</span> [</div>
+        <div class="code-tag-start">&lt;</div>
+        <div class="code-tag-end">/&gt;</div>
+        <div class="sidebar social-links">
+          <div class="code-end">];</div>
+          <div class="links">
+            <a target="_blank" href="" referrerpolicy="origin" rel="nofollow noopener">
+              <%= icons.itchdotio %>
+            </a>
+            <a target="_blank" href="" referrerpolicy="origin" rel="nofollow noopener">
+              <%= icons.github %>
+            </a>
+            <a target="_blank" href="" referrerpolicy="origin" rel="nofollow noopener">
+              <%= icons.mastodon %>
+            </a>
+            <a target="_blank" href="" referrerpolicy="origin" rel="nofollow noopener">
+              <%= icons.instagram %>
+            </a>
+          </div>
+          <div class="code-start">socials <span class="e">=</span> [</div>
+        </div>
       </div>
     </div>
   </div>
   <!-- ========================================================== -->
+  <div class="control-bar">
+    #intro
+  </div>
+
   <div id="main">
+
     <div id="projects">
       <div class="section-inner">
         <div class="section-heading">
@@ -149,7 +174,6 @@
           </p>
         </div>
         <div class="gallery-grid">
-          <%= galleryItems %>
         </div>
       </div>
     </div>

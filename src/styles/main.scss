@@ -29,9 +29,13 @@ body {
 
 /*body > section,*/
 #main {
+  position: relative;
+  z-index: 10;
   background: $dark-l;
 
-  border-radius: 4px;
+  border-radius: 0 0 6px 6px;
+  border: 1px solid $border-color;
+  border-top: 0;
   box-shadow: 0 0 28px $shadow;
   
   padding: 1em 2em;
@@ -58,17 +62,6 @@ body {
   background: $border-color;
   margin: 0 1em;
 }
-
-
-.close-tag {
-  content:"/>";
-  position: absolute;
-  width: inherit !important;
-  height: inherit !important;
-}
-
-
-
 
 .label {
   display: inline-block;
@@ -132,22 +125,30 @@ body {
     linear-gradient(to top,     $t $w, #ABC0 $w) 100% 100%;
   background-repeat: no-repeat;
   background-size: .5em .5em;
-/*   background-origin: border-box; */
 }
 
 hr {
-/*   max-width: 80%; */
-/*   height: 1px; */
   background: $secondary;
-/*   color: $primary); */
   border: none;
-/*   border-top: 1px solid currentColor */
-/*   background: linear-gradient(
-    90deg,
-    $primary),
-    $secondary)
-    ); */
   height: 2px;
+}
+
+.control-bar {
+  height:2em;
+  background: rgba($dark-l2, .6);
+  // background: rgba($light, .6);
+  backdrop-filter: blur(8px);
+  position: sticky;
+  top: 0;
+  z-index: 15;
+
+  border-radius: 6px 6px 0 0;
+  border: 1px solid $border-color;
+
+  padding: .2em 2em;
+  margin: auto;
+  margin-top: -2.25em;
+  max-width: 1080px;
 }
 
 
@@ -170,7 +171,7 @@ hr {
   justify-content: center;
 /*   flex-grow: 2; */
   width: min-content;
-  position: absolute;
+  // position: absolute;
   padding: .75em;
   height: 90%;
 /*   margin: auto auto !important; */
@@ -257,218 +258,6 @@ hr {
   transform: rotate(-90deg); 
 }
 
-/* .intro-container{
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-} */
-
-#intro +  section {
-/*   padding-top: 2em; */
-}
-
-
-
-
-.window-section {
-  color: $primary;
-  display: flex;
-}
-
-.window-titlebar {
-  font-size: 1.2em;
-  display: flex;
-  border: none;
-  padding: .3em .2em 0 .75em;
-/*   background: $primary); */
-}
-.window-title {
-  
-  background: $dark-l2;
-  padding: 0 1em;
-  white-space: nowrap;
-  border-radius: 6px 6px 0 0;
-  border: 1px solid;
-  border-bottom: none;
-  margin-bottom: -1px;
-  z-index: 2;
-/*   width: 100%; */
-}
-.window-control {
-  width: 100%;
-  display: flex;
-  justify-content: right;
-  align-items: center;
-  min-height: 1em;
-  margin-bottom: .3em;
-}
-.window-control > i
-{
-  width: 1.2em;
-  font-size: .9em;
-/*   height: .6em; */
-  margin: 0 .2em;
-  display: inline-block;
-  color: $light;
-  padding: 0 .1em;
-}
-.window-control > i:last-child
-{
-  color:$secondary !important;
-}
-.window-control > .fa-window-restore {
-  font-size: .7em;
-}
-.window-titlebar + .window-section
-{
-  border-top: 1px solid #fff7;
-  margin-top: 0 !important;
-}
-
-
-.window {
-  border-radius: 4px;
-  border: 1px solid $light;
-  box-shadow:
-/*     7px 7px 0 -2px $primary), */
-    7px 7px 0 -2px #fff6,
-    0 0 .6em .4em $shadow;
-  background: color-mix( in srgb, $dark-l 90%, transparent );
-/*   background: color-mix( in srgb, $primary) 90%, transparent ); */
-/*   backdrop-filter: blur(20px) saturate(1.8); */
-}
-
-#intro {
-
-}
-
-
-
-
-
-.intro-window-popup {
-  margin:auto;
-  margin-top: 15vh;
-/*   margin-left: 9vw; */
-  max-width: 330px;
-  height:300px;
-  backdrop-filter: blur(4px);
-}
-.intro-window-popup > .window-section:nth-of-type(2)
-{
-  margin-top: .5em;
-/*   height: 100%; */
-/*   box-sizing: border-box; */
-/*   align-items: stretch; */
-/*   display: flex !important; */
-  flex: 1;
-  
-/*   position: relative !important; */
-}
-/* .intro-window-popup h2 { */
-/*   height: min-content; */
-/*   margin: 0 !important; */
-/*   height: 80% !important; */
-/* } */
-
-
-
-@media (max-width: 390px){
-.intro-window-popup {
-/*   max-width: 90vw !important; */
-/*   height: 80vw !important; */
-}
-  
-
-/* .intro-window-popup > .window-section:nth-of-type(2){ */
-/*   height: 90vw !important; */
-/* } */
-}
-
-
-
-
-.navbar {
-  display: flex;
-  background: $dark;
-  overflow: hidden;
-  border-bottom: 1px solid $light;
-  width: 100%;
-  z-index: 99;
-  }
-.navbar > div {
-  padding-right: .5em;
-  position: relative;
-}
-.navbar .heading {
-  text-align: left;
-  font-size: 1.2em;
-  margin-left: 1em;
-  margin-top: .5em;
-  flex-grow: 1;
-}
-.navbar .heading span{
-  font-size: 1.8em;
-}
-.navbar .links{
-  display: flex
-}
-.navbar .link {
-  font-size: 1.1em;
-  color: $light;
-  margin: .5em .3em ;
-  padding: .4em .7em;
-  cursor: pointer;
-/*   height: 100%; */
-  display: block;
-  text-decoration: none;
-}
-.navbar .link .icons {
-  display: inline-block;
-  text-align: center;
-}
-/* header .link:hover .icons{
-  transform: translateX(-.1em) scale(1.5) !important;
-} */
-/* header .dropdown {
-  display: inline-block;
-  position: relative;
-  background: orange
-}
-header .dropdown-menu {
-  display: none;
-  position: absolute;
-  overflow: auto;
-  right: 0;
-  min-width: 200px;
-}
-header .dropdown:hover .dropdown-menu {
-  display: block;
-} */
-.navbar .hide-mobile{
-  display: none
-}
-
-
-/* 
-header .links{
-  margin-top: 1.8em;
-  margin-right: 1.5em;
-  border-radius: 1em;
-  background: $dark);
-  padding: .2em;
-}
-header .links > .link{
-  margin-left: .2em;
-  margin-right: .2em;
-}
-header .links > .link:not(:last-child){
-  border-right: 1px solid $primary)
-}
- */
-
-
-
 
 .intro-title {
   font-size: 160%;
@@ -498,32 +287,6 @@ header .links > .link:not(:last-child){
 /* .section-inner { */
 /*   display: block !important; */
 /* } */
-
-.ritsu-intro {
-  z-index: -100;
-  position: fixed;
-  bottom: -10px;
-  left: 0;
-  
-/*   background: linear-gradient( to bottom, transparent 55%, #9f5c6c 200%) */
-}
-.ritsu-intro > div {
-  width: 100vw
-}
-.ritsu-intro img {
-  display: block;
-  max-height: 220px;
-/*   max-height: 30vh; */
-/*   width: 100%; */
-  margin: auto
-}
-.rtsu{
-  display: block;
-  width: min-content;
-  margin: auto !important;
-}
-
-
 
 
 
@@ -587,15 +350,6 @@ header .links > .link:not(:last-child){
 
 
 
-
-
-
-#artworks {
-/*   display: none; */
-/*   background: $light) */
-}#artworks > .section-inner{
-/*   margin: .5em .25em !important; */
-}
 
 
 #skillss {
@@ -700,6 +454,9 @@ header .links > .link:not(:last-child){
 
 
 #footer{
+
+  position: relative;
+  z-index: 10;
 /*   position: absolute; */
   width: 100%;
 /*   border-top: 2px solid $border-color); */
@@ -744,7 +501,7 @@ header .links > .link:not(:last-child){
   padding: 1em;
   margin-top: 1em;
 /*   outline: 1px solid #fff6; */
-  border-bottom: 2px solid;
+  // border-bottom: 2px solid;
   
   background: $dark-l;
 /*   background: #0006; */
