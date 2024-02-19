@@ -1,8 +1,7 @@
 @import "variables.scss";
 
-
 .separator-a {
-  background: $g2;
+  background: $primary-gradient;
   height: 1px;
 }
 
@@ -28,8 +27,9 @@
   }
 
   & .label {
-    color: $dark-l2;
-    background: $g1;
+    color: $primary;
+    // color: $dark-l2;
+    // background: $primary-gradient;
   }
 }
 
@@ -50,7 +50,10 @@
 }
 .project-title {
   font-size: 1.5em;
-  @include text-gradient(0deg, #fc3a78, #b23ee0);
+  font-weight: lighter;
+  letter-spacing: .1ch;
+  color: $primary;
+  // @include text-gradient(0deg, #fc3a78, #b23ee0);
   margin: 0;
   & > a {
     text-decoration: none;
