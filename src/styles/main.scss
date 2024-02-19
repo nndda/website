@@ -77,8 +77,8 @@ body {
   white-space: nowrap;
   font-size: .92em;
   border-radius: 4px;
-  color: $label-fg;
-  background: $label-bg;
+  // color: $label-fg;
+  // background: $label-bg;
   height: 1.25em;
 
   & > img,
@@ -185,7 +185,7 @@ hr {
   }
 }
 
-.section-header {
+.section-heading {
   position: relative;
   display: flex;
   flex-direction: row;
@@ -193,7 +193,7 @@ hr {
   letter-spacing: .1em;
   word-spacing: .3em;
   border-bottom: 1px solid $border-color;
-  @include border-bottom-gradient($g1);
+  @include border-bottom-gradient($primary-gradient);
 
     & h1:first-child {
       @include text-gradient(0deg, #3ae5f9, #2a8aec);
@@ -218,7 +218,7 @@ hr {
     }
 }
 
-.section-header.header-vertical {
+.section-heading.header-vertical {
   
   position: absolute;
   writing-mode: sideways-lr;
@@ -556,20 +556,6 @@ header .links > .link:not(:last-child){
   max-width: 600px;
   padding: 1.2em 3em;
   margin: auto;
-}
-
-.skill-lang,
-.skill-tool
-{
-/*   margin: auto; */
-  padding: 0 1em
-}
-
-.skill-lang {
-  --label-bg: #0000;
-}
-.skill-tool {
-  --label-bg: #0000;
 }
 
 #tools .label {
