@@ -1,6 +1,16 @@
 @import "variables.scss";
 
 
+#tools {
+  & .section-heading {
+    @include border-bottom-gradient($tertiary-gradient);
+    & h1:first-child {
+      @include text-gradient(0deg, $tertiary, $tertiary-dark);
+      color: $primary;
+    }
+  }
+}
+
 
 .skill-info {
   @for $i from 1 through 5 {
@@ -42,6 +52,7 @@
   
   @include gradient-fade( $col, 4, 8, ".label.fade:nth-of-type" );
 }
+
 .skill-tool {
   $col : white;
   color: $col;
@@ -52,4 +63,10 @@
   }
 
   @include gradient-fade( $col, 4, 7, ".label.fade:nth-of-type" );
+}
+
+#tool-radar-chart {
+  // width: 100%;
+  // max-width: 500px;
+  // margin: auto;
 }
