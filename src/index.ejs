@@ -31,30 +31,11 @@
   </div>
 
   <div id="intro">
-    <div class="navbar hidden">
-      <span class="heading">
-        <span>ん</span>
-      </span>
-      <div class="links">
-        <a class="link bg-corner-hover" href="#games">
-          <i class="icons fa-solid fa-gamepad"></i>
-          Games
-        </a>
-        <a class="link bg-corner-hover" href="#artworks">
-          <i class="icons fa-solid fa-palette"></i>
-          Arts
-        </a>
-        <a class="link bg-corner-hover" href="#arts">
-          <i class="icons fa-solid fa-code"></i>
-          <span class="hide-mobile">Source Code</span>
-        </a>
-      </div>
-    </div>
     <!-- this really shouldnt need that many container, but alas -->
     <div class="intro-cover-overflow">
       <div class="intro-cover-container">
         <div id="intro-cover-images">
-          <img src="arts/cover_bg2.png" data-depth="0.3">
+          <img src="arts/cover_bg2.png" data-depth="0.5">
         </div>
       </div>
     </div>
@@ -96,10 +77,26 @@
     </div>
   </div>
   <!-- ========================================================== -->
-  <div class="control-bar">
-    #intro
+  <div class="cta-scroll-down-container">
+    <button id="cta-scroll-down">
+      <i class="fa-solid fa-chevron-down"></i>
+      <i class="fa-solid fa-chevron-down"></i>
+      <i class="fa-solid fa-chevron-down"></i>
+    </button>
   </div>
-
+  <div class="control-bar">
+    <i class="fa-solid fa-hashtag"></i>
+    <div id="control-bar-title">#intro</div>
+    <div class="control-bar-buttons">
+      <button><i class="fa-solid fa-window-minimize"></i></button>
+      <div class="vertical-separator"></div>
+      <button class="hidden"><i class="fa-solid fa-window-restore"></i></button>
+      <button><i class="fa-solid fa-window-maximize"></i></button>
+      <div class="vertical-separator"></div>
+      <button><i class="fa-solid fa-xmark"></i></button>
+    </div>
+  </div>
+  <!-- ========================================================== -->
   <div id="main">
 
     <div id="projects">
@@ -109,16 +106,16 @@
           <h1 class="sub-text"><span>プ</span><span>ロ</span><span>ジ</span><span>ェ</span><span>ク</span><span>ト</span></h1>
         </div>
         <div class="section-desc">
-          <p>
-
+          <p class="placeholder-text">
+            Some of my highlighted projects (Web app, Games, or anything I work on). Mostly are FOSS. And <s>most</s> some of them are still in development.
           </p>
         </div>
         <!-- ---------------------------------------------------------- -->
-        <div class="project-list">
+        <div class="project-list placeholder-text">
           <!-- ---------------------------------------------------------- -->
           <div class="project">
             <div class="project-thumb">
-              <img src="arts/0.png">
+              <!-- <img src=""> -->
             </div>
             <div class="project-heading">
               <h1 class="project-title">
@@ -141,7 +138,49 @@
           <!-- ---------------------------------------------------------- -->
           <div class="project">
             <div class="project-thumb">
-              <img src="arts/3.png">
+              <!-- <img src=""> -->
+            </div>
+            <div class="project-heading">
+              <h1 class="project-title">
+                <a target="_blank" href="" referrerpolicy="origin" rel="nofollow noopener">
+                Project Name
+                </a>
+              </h1>
+              <div class="project-labels">
+              </div>
+            </div>
+            <div class="separator-a"></div>
+            <p>
+              Project description goes here
+            </p>
+          </div>
+          <!-- ---------------------------------------------------------- -->
+          <div class="project">
+            <div class="project-thumb">
+              <!-- <img src=""> -->
+            </div>
+            <div class="project-heading">
+              <h1 class="project-title">
+                <a target="_blank" href="" referrerpolicy="origin" rel="nofollow noopener">
+                Project Name
+                </a>
+              </h1>
+            </div>
+            <div class="separator-a"></div>
+            <p>
+              Project description goes here
+            </p>
+            <div class="project-labels">
+              <span class="label">
+                <%= icons.godotengine %>
+                Godot 4
+              </span>
+            </div>
+          </div>
+          <!-- ---------------------------------------------------------- -->
+          <div class="project">
+            <div class="project-thumb">
+              <!-- <img src=""> -->
             </div>
             <div class="project-heading">
               <h1 class="project-title">
@@ -168,9 +207,9 @@
           <h1>Illustrations</h1>
           <h1 class="sub-text"><span>イ</span><span>ラ</span><span>ス</span><span>ト</span></h1>
         </div>
-        <div class="section-desc">
+        <div class="section-desc placeholder-text">
           <p>
-            
+            Fanart, pixel art, and concept/game arts I did.
           </p>
         </div>
         <div class="gallery-grid">
@@ -182,105 +221,143 @@
       <div class="section-inner">
         <div class="section-heading">
           <h1>Tech Stack</h1>
-          <h1 class="sub-text"><span>イ</span><span>ラ</span><span>ス</span><span>ト</span></h1>
+          <h1 class="sub-text"><span>ス</span><span>キ</span><span>ル</span><span>セ</span><span>ッ</span><span>ト</span></h1>
         </div>
         <div class="section-desc">
           <p>
             
           </p>
         </div>
-        <div class="tool-list">
-          <h4 class="heading fa-solid fa-hammer">&nbsp;Languages &amp; Frameworks</h4>
-          <div class="skill-lang">
-            <span class="label">
-              <%= icons.godotengine %>
-              GDScript
-            </span>
-            <span class="label">
-              <%= icons.css3 %>
-              CSS
-            </span>
-            <span class="label">
-              <%= icons.html5 %>
-              HTML
-            </span>
-            <span class="label">
-              <%= icons.python %>
-              Python
-            </span>
-            <span class="label fade">
-              <%= icons.javascript %>
-              JavaScript
-            </span>
-            <span class="label fade">
-              <%= icons.sass %>
-              Sass
-            </span>
-            <span class="label fade">
-              <%= icons.cplusplus %>
-              C++
-            </span>
-            <span class="label fade">
-              <%= icons.csharp %>
-              C#
-            </span>
-          </div>
-          <h4 class="heading fa-solid fa-code">&nbsp;Softwares &amp; Tools</h4>
-          <div class="skill-tool">
-            <span class="label">
-              <%= icons.godotengine %>
-              Godot Engine
-            </span>
-            <span class="label ">
-              FireAlpaca
-            </span>
-            <span class="label">
-              <%= icons.medibangpaint %>
-              MediBang Paint
-            </span>
-            <span class="label">
-              Paint.NET
-            </span>
-            <span class="label fade">
-              <%= icons.sublimetext %>
-              Sublime Text
-            </span>
-            <span class="label fade">
-              <%= icons.aseprite %>
-              Aseprite
-            </span>
-            <span class="label fade">
-              <%= icons.visualstudiocode %>
-              Visual Studio Code
-            </span>
-          </div>
-          <div class="skill-info">
-            <div>Proficient</div>
-            <div>
-              <div class="level"></div>
-              <div class="level"></div>
-              <div class="level"></div>
-              <div class="level"></div>
-              <div class="level"></div>
+        <div class="tool-stats">
+          <div class="tool-list">
+            <div class="tool-data">
+
+              <h4 class="heading">General</h4>
+              <div class="skill-webdev">
+                <span class="label fade">
+                  <%= icons.python %>
+                  Python
+                </span>
+                <span class="label fade">
+                  <%= icons.cplusplus %>
+                  C++
+                </span>
+                <span class="label fade">
+                  <%= icons.csharp %>
+                  C#
+                </span>
+                <span class="label fade">
+                  <%= icons.wolframlanguage %>
+                  Wolfram Language
+                </span>
+              </div>
+
+              <h4 class="heading">Front End</h4>
+              <div class="skill-frontend">
+                <span class="label">
+                  <%= icons.html5 %>
+                  HTML
+                </span>
+                <span class="label">
+                  <%= icons.css3 %>
+                  CSS
+                </span>
+                <span class="label fade">
+                  <%= icons.javascript %>
+                  JavaScript
+                </span>
+                <span class="label fade">
+                  <%= icons.typescript %>
+                  TypeScript
+                </span>
+                <span class="label fade">
+                  <%= icons.sass %>
+                  Sass
+                </span>
+                <span class="label fade">
+                  <%= icons.webpack %>
+                  webpack
+                </span>
+                <span class="label fade">
+                  <%= icons.jekyll %>
+                  Jekyll
+                </span>
+              </div>
+
+              <h4 class="heading">Back End</h4>
+              <div class="skill-webdev">
+                <span class="label fade">
+                  <%= icons.nodedotjs %>
+                  Node.js
+                </span>
+              </div>
+
+              <h4 class="heading">Game Dev</h4>
+              <div class="skill-gamedev">
+                <span class="label">
+                  <%= icons.godotengine %>
+                  Godot Engine <span style="opacity: .5;">(GDScript, 2D)</span>
+                </span>
+              </div>
+
+              <h4 class="heading">Illustration</h4>
+              <div class="skill-illust">
+                <span class="label ">
+                  FireAlpaca
+                </span>
+                <span class="label">
+                  <%= icons.medibangpaint %>
+                  MediBang Paint
+                </span>
+                <span class="label">
+                  Paint.NET
+                </span>
+                <span class="label fade">
+                  <%= icons.inkscape %>
+                  Inkscape
+                </span>
+                <span class="label fade">
+                  <%= icons.aseprite %>
+                  Aseprite
+                </span>
+              </div>
             </div>
-            <div>Decent</div>
+
+            <div class="skill-info">
+              <div>Proficient</div>
+              <div>
+                <div class="level"></div>
+                <div class="level"></div>
+                <div class="level"></div>
+                <div class="level"></div>
+                <div class="level"></div>
+              </div>
+              <div>Decent</div>
+            </div>
           </div>
-      </div>
+          <div class="tool-radar-container">
+            <canvas id="tool-radar-chart"></canvas>
+          </div>
+        </div>
       </div>
     </div>
   </div>
   <!-- ========================================================== -->
   <div id="footer">
     <div class="section-inner">
-      <div class="footer-links">
-        <div>
-          <h4>Contacts</h4><a>Discord</a><a>E-mail</a>
-        </div>
-        <div>
-          <h4>Links</h4><a target="_blank" referrerpolicy="origin" rel="nofollow noopener" href="#">Certificates</a><a target="_blank" referrerpolicy="origin" rel="nofollow noopener" href="#">Source Code</a>
-        </div>
-        <div>
-          <h4>Socials</h4>
+      <div class="footer-links-container">
+        <div class="footer-links">
+          <div>
+            <h4>Contacts</h4>
+            <a>Discord</a>
+            <a>E-mail</a>
+          </div>
+          <div>
+            <h4>Links</h4>
+            <a target="_blank" referrerpolicy="origin" rel="nofollow noopener" href="#">
+              Source Code
+            </a>
+          </div>
         </div>
       </div>
       <div>Copyright © 2023 nnda</div>
