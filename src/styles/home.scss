@@ -1,5 +1,82 @@
 @import "variables.scss";
 
+
+.cta-scroll-down-container {
+  position: fixed;
+  // background: red;
+  bottom: 3em;
+  width: 100%;
+
+  & > #cta-scroll-down {
+    // position: fixed;
+    // bottom: 5em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+
+    font-size: 2em;
+    width: 2em;
+    height: 2em;
+
+    border: 1px solid;
+    border-radius: 50%;
+
+    background: none;
+    backdrop-filter: blur(8px);
+
+    margin-left: auto; 
+    margin-right: auto;
+    text-align: center;
+
+    &:hover {
+      animation: scroll-arrow-hover .8s forwards ease;
+    }
+
+    & > i {
+      position: absolute;
+      display: block;
+      animation: scroll-arrow 1.5s infinite cubic-bezier( 0.455, 0.03, 0.515, 0.955 );
+      
+      @for $i from 1 through 3 {
+        &:nth-child(#{$i}n) {
+          animation-delay: #{$i * .25}s;
+        }
+      }
+
+      &:nth-child(1) {
+
+      }
+    }
+
+  }
+}
+
+@keyframes scroll-arrow {
+  0% {
+    transform: translateY(-150%);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+}
+
+@keyframes scroll-arrow-hover {
+  from {
+    outline: 0 solid $light;
+  }
+  to {
+    outline: 1em solid transparent;
+  }
+}
+
 #intro {
   position: sticky;
   top: 0;
@@ -49,10 +126,17 @@
     position: absolute;
     text-align: right;
     right: 0;
+    top: 0;
     margin: 1em;
     width: 100%;
     align-items: center;
     justify-content: right;
+    transition: .8s ease;
+
+    &.collapsed {
+      top: -10%;
+      transition: .8s ease;
+    }
 
     & > hr {
       background: $light;
@@ -139,6 +223,11 @@
   // color: $primary;
   // text-shadow: 0 0 9px currentColor;
   transform: rotate(45deg);
+  transition: transform .3s ease;
+}
+
+.rotate-reset {
+  transform: rotate(0deg);
 }
 
 .code-tag-start {
@@ -149,8 +238,8 @@
 .code-tag-end {
   bottom: 0;
   right: 0;
-  padding-right: 1em;
-  padding-bottom: 1em;
+  padding-right: .6em;
+  padding-bottom: 1.5em;
 }
 
 .cover-gradient {
@@ -198,8 +287,8 @@
   // mix-blend-mode:multiply;
   background:
     linear-gradient(
-      0deg,
-      $dark -1%,
+      -45deg,
+      $dark -5%,
       $dark-transparent 30%,
       // rgba($secondary, .5) 115%
     )
