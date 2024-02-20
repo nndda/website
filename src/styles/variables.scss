@@ -2,17 +2,18 @@ $primary: #3ae5f9;
 $primary-dark: #2a8aec;
 $secondary: #fc3a78;
 $secondary-dark: #b23ee0;
-$tertiary: #f1ea22;
-$tertiary-dark: #f1ea22;
+$tertiary: #fedf0f;
+$tertiary-dark: #ffa715;
 
 $light: #eaeaea;
 $light-l: #eaeaea0e;
 
 // $dark: lighten(#151417, 1%);
-$dark: darken(mix(#0f0407, $primary, 95%), 2%);
+// $dark: darken(mix(#0f0407, $primary, 95%), 2%);
+$dark: #17151e;
 $dark-l: lighten($dark, 2%);
-$dark-l2: lighten($dark, 6%);
-$dark-l3: lighten($dark, 8%);
+$dark-l2: lighten($dark, 5%);
+$dark-l3: lighten($dark, 7%);
 
 @mixin tint-base($base) {
   $dark: $base;
@@ -31,6 +32,8 @@ $label-fg: $dark;
 
 $primary-gradient: linear-gradient(90deg, $primary, $primary-dark);
 $secondary-gradient: linear-gradient(90deg, $secondary, $secondary-dark);
+$tertiary-gradient: linear-gradient(90deg, $tertiary, $tertiary-dark);
+$light-gradient: linear-gradient(90deg, $light, darken($light, 50%));
 
 @mixin highlight-marker {
   background-image: url(https://s2.svgbox.net/pen-brushes.svg?ic=brush-8&color=3ae5f9);
