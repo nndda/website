@@ -59,15 +59,13 @@ module.exports = {
       filename: "index.html",
       templateParameters: {
         icons: require("./src/vendor/icons.js"),
-        galleryItems: require("./src/scripts/gallery.js"),
-        // coverBackground: "./arts/cover_bg2.png",
       },
     }),
     new CopyPlugin({
       patterns: [
         {
-          from: path.resolve(__dirname, "src"),
-          to: path.resolve(__dirname, "dist"),
+          from: path.resolve(__dirname, "src/arts"),
+          to: path.resolve(__dirname, "dist/arts"),
         },
       ],
     }),
