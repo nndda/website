@@ -17,6 +17,7 @@ let icons = {};
 	"siVisualstudiocode",
 
 	"siWebpack",
+	"siJekyll",
 	"siGodotengine",
 	"siPython",
 	"siHtml5",
