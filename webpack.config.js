@@ -1,69 +1,41 @@
 const path = require("path");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const CopyPlugin = require("copy-webpack-plugin");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
-const TerserPlugin = require("terser-webpack-plugin");
-const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
+const HtmlBundlerPlugin = require("html-bundler-webpack-plugin");
 
 module.exports = {
   mode: "production",
-  entry: {
-    vendor: "./src/vendor.ts",
-    index: "./src/index.ts",
-  },
-
-  resolve: {
-    extensions: [".tsx", ".ts", ".js"],
-  },
 
   output: {
-    filename: "[name].[contenthash].js",
     path: path.resolve(__dirname, "dist"),
     clean: true,
   },
 
-  optimization: {
-    minimizer: [
-      new CssMinimizerPlugin({
-        minify: CssMinimizerPlugin.cleanCssMinify,
-      }),
-      new TerserPlugin,
-    ],
-    minimize: true,
-  },
-
   plugins: [
-    new MiniCssExtractPlugin({
-      filename: "[name].[contenthash].css",
-    }),
-    new HtmlWebpackPlugin({
-      template: "./src/index.ejs",
-      filename: "index.html",
-      templateParameters: {
-        icons: require("./src/vendor/icons.js"),
+    new HtmlBundlerPlugin({
+      entry: {
+        index: "./src/index.html",
       },
+      js: {
+        filename: "js/[contenthash].js",
+      },
+      css: {
+        filename: "css/[contenthash].css",
+      },
+      minify: {
+        collapseWhitespace: true,
+        keepClosingSlash: true,
+        removeComments: true,
+      },
+      // preload: [
+      //   {
+      //     test: /\.(woff|woff2|eot|ttf|otf)$/,
+      //     attributes: { as: "font", crossorigin: true },
+      //   },
+      // ],
     }),
-    new CopyPlugin({
-      patterns: [
-        {
-          from: path.resolve(__dirname, "src/arts"),
-          to: path.resolve(__dirname, "dist/arts"),
-        },
-      ],
-    }),
-    // new FaviconsWebpackPlugin({
-    //   logo: "/path/to/logo.png",
-    //   outputPath: '/icons',
-    // }),
   ],
 
   module: {
     rules: [
-      {
-        test: /\.(html)$/i,
-        loader: "html-loader",
-      },
       {
         test: /\.tsx?$/,
         use: "ts-loader",
@@ -73,23 +45,23 @@ module.exports = {
         test: /\.(woff|woff2|eot|ttf|otf)$/,
         type: "asset/resource",
         generator: {
-            filename: "./fonts/[name][ext]",
+          filename: "./fonts/[name][ext][query]",
         },
       },
       {
-        test: /\.(png|webp)$/,
+        test: /\.(ico|png|jp?g|webp)$/,
         type: "asset/resource",
-        use: [
-          {
-            options: {
-              esModule: false,
-            },
-          }
-        ],
+        generator: {
+          filename: "img/[contenthash][ext][query]",
+        },
+      },
+      {
+        test: /\.svg$/,
+        type: "asset/inline",
       },
       {
         test: /\.s?css$/i,
-        use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
+        use: ["css-loader", "sass-loader"],
       },
     ]
   },

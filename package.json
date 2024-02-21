@@ -5,7 +5,7 @@
   "private": true,
   "scripts": {
     "start": "webpack-dev-server --config webpack.dev.js --port 8080",
-    "build": "webpack --config webpack.config.js"
+    "build": "webpack --config webpack.config.js --stats-error-details"
   },
   "dependencies": {
     "@fontsource/fira-code": "^5.0.16",
@@ -20,22 +20,17 @@
     "spinkit": "^2.0.1"
   },
   "devDependencies": {
-    "copy-webpack-plugin": "^12.0.2",
     "css-loader": "^6.10.0",
-    "css-minimizer-webpack-plugin": "^6.0.0",
     "favicons": "^7.1.5",
     "favicons-webpack-plugin": "^6.0.1",
     "file-loader": "^6.2.0",
     "handlebars-loader": "^1.7.3",
-    "html-bundler-webpack-plugin": "^3.4.12",
+    "html-bundler-webpack-plugin": "^3.5.2",
     "html-loader": "^5.0.0",
-    "html-webpack-plugin": "^5.6.0",
-    "mini-css-extract-plugin": "^2.8.0",
     "sass": "^1.70.0",
     "sass-loader": "^14.1.0",
     "style-loader": "^3.3.4",
     "svg-inline-loader": "^0.8.2",
-    "terser-webpack-plugin": "^5.3.10",
     "ts-loader": "^9.5.1",
     "typescript": "^5.3.3",
     "webpack": "^5.90.1",

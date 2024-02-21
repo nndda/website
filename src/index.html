@@ -2,19 +2,29 @@
 <html color-scheme="dark" lang="en">
 
 <head>
-  <title>nnda</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <!-- The Common Crawl dataset. Used by GPT-3 (and GPT-3.5) and available for others. -->
   <meta name="CCBot" content="nofollow">
+
+  <!-- Used by DeviantArt, ArtStation, etc. based on opt-in or opt-out -->
   <meta name="robots" content="noai, noimageai">
-  
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>ん</text></svg>">
+
+  <!-- TDM Metadata in HTML Content -->
+  <meta name="tdm-reservation" content="1">
+
+  <title>nnda</title>
 
   <meta name="author" content="nnda">
   <meta name="description"
     content="Hi there, Im a self-proclaimed game developer, front-end web developer, and digital artist/illustrator."
   >
+
+  <link rel="stylesheet" href="styles/main.scss">
+  <script type="text/javascript" src="vendor.ts"></script>
+
+  <link rel="preload" as="image" href="arts/cover_bg2.png">
 
 </head>
 
@@ -24,7 +34,7 @@
     <button id="lightbox-left"><i class="fa-solid fa-arrow-left"></i></button>
 
     <div class="img-container">
-      <!-- <img src=""> -->
+      
     </div>
 
     <button id="lightbox-right"><i class="fa-solid fa-arrow-right"></i></button>
@@ -35,7 +45,7 @@
     <div class="intro-cover-overflow">
       <div class="intro-cover-container">
         <div id="intro-cover-images">
-          <img src="arts/cover_bg2.png" data-depth="0.5">
+          <img src="arts/cover_bg2.png" data-depth="0.5" fetchpriority="high">
         </div>
       </div>
     </div>
@@ -59,16 +69,16 @@
           <div class="code-end">];</div>
           <div class="links">
             <a target="_blank" href="" referrerpolicy="origin" rel="nofollow noopener">
-              <%= icons.itchdotio %>
+              <img src="../node_modules/simple-icons/icons/itchdotio.svg">
             </a>
             <a target="_blank" href="" referrerpolicy="origin" rel="nofollow noopener">
-              <%= icons.github %>
+              <img src="../node_modules/simple-icons/icons/github.svg">
             </a>
             <a target="_blank" href="" referrerpolicy="origin" rel="nofollow noopener">
-              <%= icons.mastodon %>
+              <img src="../node_modules/simple-icons/icons/mastodon.svg">
             </a>
             <a target="_blank" href="" referrerpolicy="origin" rel="nofollow noopener">
-              <%= icons.instagram %>
+              <img src="../node_modules/simple-icons/icons/instagram.svg">
             </a>
           </div>
           <div class="code-start">socials <span class="e">=</span> [</div>
@@ -115,7 +125,7 @@
           <!-- ---------------------------------------------------------- -->
           <div class="project">
             <div class="project-thumb">
-              <!-- <img src=""> -->
+              
             </div>
             <div class="project-heading">
               <h1 class="project-title">
@@ -130,7 +140,7 @@
             </p>
             <div class="project-labels">
               <span class="label">
-                <%= icons.godotengine %>
+                <img src="../node_modules/simple-icons/icons/godotengine.svg">
                 Godot 4
               </span>
             </div>
@@ -138,7 +148,7 @@
           <!-- ---------------------------------------------------------- -->
           <div class="project">
             <div class="project-thumb">
-              <!-- <img src=""> -->
+              
             </div>
             <div class="project-heading">
               <h1 class="project-title">
@@ -157,7 +167,7 @@
           <!-- ---------------------------------------------------------- -->
           <div class="project">
             <div class="project-thumb">
-              <!-- <img src=""> -->
+              
             </div>
             <div class="project-heading">
               <h1 class="project-title">
@@ -172,7 +182,7 @@
             </p>
             <div class="project-labels">
               <span class="label">
-                <%= icons.godotengine %>
+                <img src="../node_modules/simple-icons/icons/godotengine.svg">
                 Godot 4
               </span>
             </div>
@@ -180,7 +190,7 @@
           <!-- ---------------------------------------------------------- -->
           <div class="project">
             <div class="project-thumb">
-              <!-- <img src=""> -->
+              
             </div>
             <div class="project-heading">
               <h1 class="project-title">
@@ -235,19 +245,19 @@
               <h4 class="heading">General</h4>
               <div class="skill-webdev">
                 <span class="label fade">
-                  <%= icons.python %>
+                  <img src="../node_modules/simple-icons/icons/python.svg">
                   Python
                 </span>
                 <span class="label fade">
-                  <%= icons.cplusplus %>
+                  <img src="../node_modules/simple-icons/icons/cplusplus.svg">
                   C++
                 </span>
                 <span class="label fade">
-                  <%= icons.csharp %>
+                  <img src="../node_modules/simple-icons/icons/csharp.svg">
                   C#
                 </span>
                 <span class="label fade">
-                  <%= icons.wolframlanguage %>
+                  <img src="../node_modules/simple-icons/icons/wolframlanguage.svg">
                   Wolfram Language
                 </span>
               </div>
@@ -255,31 +265,31 @@
               <h4 class="heading">Front End</h4>
               <div class="skill-frontend">
                 <span class="label">
-                  <%= icons.html5 %>
+                  <img src="../node_modules/simple-icons/icons/html5.svg">
                   HTML
                 </span>
                 <span class="label">
-                  <%= icons.css3 %>
+                  <img src="../node_modules/simple-icons/icons/css3.svg">
                   CSS
                 </span>
                 <span class="label fade">
-                  <%= icons.javascript %>
+                  <img src="../node_modules/simple-icons/icons/javascript.svg">
                   JavaScript
                 </span>
                 <span class="label fade">
-                  <%= icons.typescript %>
+                  <img src="../node_modules/simple-icons/icons/typescript.svg">
                   TypeScript
                 </span>
                 <span class="label fade">
-                  <%= icons.sass %>
+                  <img src="../node_modules/simple-icons/icons/sass.svg">
                   Sass
                 </span>
                 <span class="label fade">
-                  <%= icons.webpack %>
+                  <img src="../node_modules/simple-icons/icons/webpack.svg">
                   webpack
                 </span>
                 <span class="label fade">
-                  <%= icons.jekyll %>
+                  <img src="../node_modules/simple-icons/icons/jekyll.svg">
                   Jekyll
                 </span>
               </div>
@@ -287,7 +297,7 @@
               <h4 class="heading">Back End</h4>
               <div class="skill-webdev">
                 <span class="label fade">
-                  <%= icons.nodedotjs %>
+                  <img src="../node_modules/simple-icons/icons/nodedotjs.svg">
                   Node.js
                 </span>
               </div>
@@ -295,7 +305,7 @@
               <h4 class="heading">Game Dev</h4>
               <div class="skill-gamedev">
                 <span class="label">
-                  <%= icons.godotengine %>
+                  <img src="../node_modules/simple-icons/icons/godotengine.svg">
                   Godot Engine <span style="opacity: .5;">(GDScript, 2D)</span>
                 </span>
               </div>
@@ -306,18 +316,18 @@
                   FireAlpaca
                 </span>
                 <span class="label">
-                  <%= icons.medibangpaint %>
+                  <img src="../node_modules/simple-icons/icons/medibangpaint.svg">
                   MediBang Paint
                 </span>
                 <span class="label">
                   Paint.NET
                 </span>
                 <span class="label fade">
-                  <%= icons.inkscape %>
+                  <img src="../node_modules/simple-icons/icons/inkscape.svg">
                   Inkscape
                 </span>
                 <span class="label fade">
-                  <%= icons.aseprite %>
+                  <img src="../node_modules/simple-icons/icons/aseprite.svg">
                   Aseprite
                 </span>
               </div>
@@ -363,6 +373,8 @@
       <div>Copyright © 2023 nnda</div>
     </div>
   </div>
+
+  <script type="text/javascript" src="index.ts"></script>
 </body>
 
 </html>
