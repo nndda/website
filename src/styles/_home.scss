@@ -1,4 +1,4 @@
-@import "variables.scss";
+@use "variables" as *;
 
 
 .cta-scroll-down-container {
@@ -133,9 +133,11 @@
     justify-content: right;
     transition: .8s ease;
 
+      // filter: blur(.2em);
     &.collapsed {
-      top: -10%;
-      transition: .8s ease;
+      transform: translateY(-150%);
+      // top: -10%;
+      // transition: .8s ease;
     }
 
     & > hr {

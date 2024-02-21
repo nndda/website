@@ -1,4 +1,8 @@
-@import "variables.scss";
+@use "variables" as *;
+@use "home";
+@use "projects";
+@use "illustrations";
+@use "tools";
 
 :root {
   scroll-behavior: smooth !important;
@@ -91,6 +95,8 @@ $border-radius-size: 12px;
   border-bottom-color: var(--tint-color);
 
   transition: .5s ease;
+
+  will-change: border-top, border-radius;
 
   &.sticky {
     border-top: 0;
