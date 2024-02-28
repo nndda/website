@@ -15,31 +15,48 @@
   <meta name="tdm-reservation" content="1">
 
   <title>nnda</title>
-
   <meta name="author" content="nnda">
   <meta name="description"
     content="Hi there, Im a self-proclaimed game developer, front-end web developer, and digital artist/illustrator."
   >
 
-  <link rel="stylesheet" href="styles/main.scss">
-  <script type="text/javascript" src="vendor.ts"></script>
-
+  <!-- preload cover images -->
   <link rel="preload" as="image" href="arts/cover_bg2.png">
 
+  <!-- what the fuck 👇 -->
+  <link
+    class="dev-remove"
+    rel="preload"
+    as="font"
+    crossorigin="true"
+    href="../node_modules/@fontsource/noto-sans-jp/files/noto-sans-jp-latin-400-normal.woff2"
+    type="font/woff2"
+  />
+  <link
+    class="dev-remove"
+    rel="preload"
+    as="font"
+    crossorigin="true"
+    href="../node_modules/@fontsource/fira-code/files/fira-code-latin-400-normal.woff2"
+    type="font/woff2"
+  />
+  <link
+    class="dev-remove"
+    rel="preload"
+    as="font"
+    crossorigin="true"
+    href="../node_modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.woff2"
+    type="font/woff2"
+  />
+
+  <link class="dev-remove" rel="stylesheet" type="text/css" href="styles/main.scss">
+
+  <script class="dev-remove" type="text/javascript" src="vendor.ts"></script>
+  <script class="dev-remove" type="text/javascript" src="scripts/scroll.ts"></script>
+  <script class="dev-remove" type="text/javascript" src="scripts/parallax.ts"></script>
 </head>
 
 <body>
-
-  <div id="lightbox" class="hidden">
-    <button id="lightbox-left"><i class="fa-solid fa-arrow-left"></i></button>
-
-    <div class="img-container">
-      
-    </div>
-
-    <button id="lightbox-right"><i class="fa-solid fa-arrow-right"></i></button>
-  </div>
-
   <div id="intro">
     <!-- this really shouldnt need that many container, but alas -->
     <div class="intro-cover-overflow">
@@ -69,16 +86,16 @@
           <div class="code-end">];</div>
           <div class="links">
             <a target="_blank" href="" referrerpolicy="origin" rel="nofollow noopener">
-              <img src="../node_modules/simple-icons/icons/itchdotio.svg">
+              <img data-si="itchdotio">
             </a>
             <a target="_blank" href="" referrerpolicy="origin" rel="nofollow noopener">
-              <img src="../node_modules/simple-icons/icons/github.svg">
+              <img data-si="github">
             </a>
             <a target="_blank" href="" referrerpolicy="origin" rel="nofollow noopener">
-              <img src="../node_modules/simple-icons/icons/mastodon.svg">
+              <img data-si="mastodon">
             </a>
             <a target="_blank" href="" referrerpolicy="origin" rel="nofollow noopener">
-              <img src="../node_modules/simple-icons/icons/instagram.svg">
+              <img data-si="instagram">
             </a>
           </div>
           <div class="code-start">socials <span class="e">=</span> [</div>
@@ -117,96 +134,12 @@
         </div>
         <div class="section-desc">
           <p class="placeholder-text">
-            Some of my highlighted projects (Web app, Games, or anything I work on). Mostly are FOSS. And <s>most</s> some of them are still in development.
+            Some of my highlighted projects (Web app, Games, or anything I work on). Most of them are FOSS. And <s>most</s> some of them are still in development.
           </p>
         </div>
         <!-- ---------------------------------------------------------- -->
         <div class="project-list placeholder-text">
-          <!-- ---------------------------------------------------------- -->
-          <div class="project">
-            <div class="project-thumb">
-              
-            </div>
-            <div class="project-heading">
-              <h1 class="project-title">
-                <a target="_blank" href="" referrerpolicy="origin" rel="nofollow noopener">
-                Project Name
-                </a>
-              </h1>
-            </div>
-            <div class="separator-a"></div>
-            <p>
-              Project description goes here
-            </p>
-            <div class="project-labels">
-              <span class="label">
-                <img src="../node_modules/simple-icons/icons/godotengine.svg">
-                Godot 4
-              </span>
-            </div>
-          </div>
-          <!-- ---------------------------------------------------------- -->
-          <div class="project">
-            <div class="project-thumb">
-              
-            </div>
-            <div class="project-heading">
-              <h1 class="project-title">
-                <a target="_blank" href="" referrerpolicy="origin" rel="nofollow noopener">
-                Project Name
-                </a>
-              </h1>
-              <div class="project-labels">
-              </div>
-            </div>
-            <div class="separator-a"></div>
-            <p>
-              Project description goes here
-            </p>
-          </div>
-          <!-- ---------------------------------------------------------- -->
-          <div class="project">
-            <div class="project-thumb">
-              
-            </div>
-            <div class="project-heading">
-              <h1 class="project-title">
-                <a target="_blank" href="" referrerpolicy="origin" rel="nofollow noopener">
-                Project Name
-                </a>
-              </h1>
-            </div>
-            <div class="separator-a"></div>
-            <p>
-              Project description goes here
-            </p>
-            <div class="project-labels">
-              <span class="label">
-                <img src="../node_modules/simple-icons/icons/godotengine.svg">
-                Godot 4
-              </span>
-            </div>
-          </div>
-          <!-- ---------------------------------------------------------- -->
-          <div class="project">
-            <div class="project-thumb">
-              
-            </div>
-            <div class="project-heading">
-              <h1 class="project-title">
-                <a target="_blank" href="" referrerpolicy="origin" rel="nofollow noopener">
-                Project Name
-                </a>
-              </h1>
-              <div class="project-labels">
-              </div>
-            </div>
-            <div class="separator-a"></div>
-            <p>
-              Project description goes here
-            </p>
-          </div>
-          <!-- ---------------------------------------------------------- -->
+          <div id="CONTENT-PROJECTS"></div>
         </div>
       </div>
     </div>
@@ -223,6 +156,7 @@
           </p>
         </div>
         <div class="gallery-grid">
+          <div id="CONTENT-ILLUSTRATIONS"></div>
         </div>
       </div>
     </div>
@@ -245,19 +179,19 @@
               <h4 class="heading">General</h4>
               <div class="skill-webdev">
                 <span class="label fade">
-                  <img src="../node_modules/simple-icons/icons/python.svg">
+                  <img data-si="python">
                   Python
                 </span>
                 <span class="label fade">
-                  <img src="../node_modules/simple-icons/icons/cplusplus.svg">
+                  <img data-si="cplusplus">
                   C++
                 </span>
                 <span class="label fade">
-                  <img src="../node_modules/simple-icons/icons/csharp.svg">
+                  <img data-si="csharp">
                   C#
                 </span>
                 <span class="label fade">
-                  <img src="../node_modules/simple-icons/icons/wolframlanguage.svg">
+                  <img data-si="wolframlanguage">
                   Wolfram Language
                 </span>
               </div>
@@ -265,31 +199,31 @@
               <h4 class="heading">Front End</h4>
               <div class="skill-frontend">
                 <span class="label">
-                  <img src="../node_modules/simple-icons/icons/html5.svg">
+                  <img data-si="html5">
                   HTML
                 </span>
                 <span class="label">
-                  <img src="../node_modules/simple-icons/icons/css3.svg">
+                  <img data-si="css3">
                   CSS
                 </span>
                 <span class="label fade">
-                  <img src="../node_modules/simple-icons/icons/javascript.svg">
+                  <img data-si="javascript">
                   JavaScript
                 </span>
                 <span class="label fade">
-                  <img src="../node_modules/simple-icons/icons/typescript.svg">
+                  <img data-si="typescript">
                   TypeScript
                 </span>
                 <span class="label fade">
-                  <img src="../node_modules/simple-icons/icons/sass.svg">
+                  <img data-si="sass">
                   Sass
                 </span>
                 <span class="label fade">
-                  <img src="../node_modules/simple-icons/icons/webpack.svg">
+                  <img data-si="webpack">
                   webpack
                 </span>
                 <span class="label fade">
-                  <img src="../node_modules/simple-icons/icons/jekyll.svg">
+                  <img data-si="jekyll">
                   Jekyll
                 </span>
               </div>
@@ -297,7 +231,7 @@
               <h4 class="heading">Back End</h4>
               <div class="skill-webdev">
                 <span class="label fade">
-                  <img src="../node_modules/simple-icons/icons/nodedotjs.svg">
+                  <img data-si="nodedotjs">
                   Node.js
                 </span>
               </div>
@@ -305,7 +239,7 @@
               <h4 class="heading">Game Dev</h4>
               <div class="skill-gamedev">
                 <span class="label">
-                  <img src="../node_modules/simple-icons/icons/godotengine.svg">
+                  <img data-si="godotengine">
                   Godot Engine <span style="opacity: .5;">(GDScript, 2D)</span>
                 </span>
               </div>
@@ -316,18 +250,18 @@
                   FireAlpaca
                 </span>
                 <span class="label">
-                  <img src="../node_modules/simple-icons/icons/medibangpaint.svg">
+                  <img data-si="medibangpaint">
                   MediBang Paint
                 </span>
                 <span class="label">
                   Paint.NET
                 </span>
                 <span class="label fade">
-                  <img src="../node_modules/simple-icons/icons/inkscape.svg">
+                  <img data-si="inkscape">
                   Inkscape
                 </span>
                 <span class="label fade">
-                  <img src="../node_modules/simple-icons/icons/aseprite.svg">
+                  <img data-si="aseprite">
                   Aseprite
                 </span>
               </div>
@@ -344,9 +278,6 @@
               </div>
               <div>Decent</div>
             </div>
-          </div>
-          <div class="tool-radar-container">
-            <canvas id="tool-radar-chart"></canvas>
           </div>
         </div>
       </div>
@@ -374,7 +305,6 @@
     </div>
   </div>
 
-  <script type="text/javascript" src="index.ts"></script>
 </body>
 
 </html>
