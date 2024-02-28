@@ -1,17 +1,32 @@
 const path = require("path");
-const HtmlBundlerPlugin = require("html-bundler-webpack-plugin");
-
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const CopyPlugin = require("copy-webpack-plugin");
+// const FaviconsWebpackPlugin = require("favicons-webpack-plugin");
 
 module.exports = {
   mode: "development",
 
+  entry: {
+    vendor: "./src/vendor.ts",
+    index: "./src/index.ts",
+  },
+
+  resolve: {
+    extensions: [".tsx", ".ts", ".js"],
+  },
+
   output: {
+    filename: "[name].js",
     path: path.resolve(__dirname, "dist"),
     clean: true,
   },
 
   module: {
     rules: [
+      {
+        test: /\.(html)$/i,
+        loader: "html-loader",
+      },
       {
         test: /\.tsx?$/,
         use: "ts-loader",
@@ -21,32 +36,43 @@ module.exports = {
         test: /\.(woff|woff2|eot|ttf|otf)$/,
         type: "asset/resource",
         generator: {
-          filename: "./fonts/[name][ext][query]",
+            filename: "./fonts/[name][ext]",
         },
       },
-      {
-        test: /\.(ico|png|jp?g|webp)$/,
-        type: "asset/resource",
-        generator: {
-          filename: "img/[contenthash][ext][query]",
-        },
-      },
-      {
-        test: /\.svg$/,
-        type: "asset/inline",
-      },
+      // {
+      //   test: /\.(png|webp)$/,
+      //   use: [
+      //     {
+      //       loader: "file-loader",
+      //       options: {
+      //         esModule: false,
+      //       },
+      //     }
+      //   ],
+      // },
       {
         test: /\.s?css$/i,
-        use: ["css-loader", "sass-loader"],
+        use: ["style-loader", "css-loader", "sass-loader"],
       },
     ]
   },
 
   plugins: [
-    new HtmlBundlerPlugin({
-      entry: {
-        index: "./src/index.html",
-      },
+    new HtmlWebpackPlugin({
+      template: "./src/index-dev.html",
+      filename: "index.html",
     }),
+    new CopyPlugin({
+      patterns: [
+        {
+          from: path.resolve(__dirname, "src/arts"),
+          to: path.resolve(__dirname, "dist/arts"),
+        },
+      ],
+    }),
+    // new FaviconsWebpackPlugin({
+    //   logo: "/path/to/logo.png",
+    //   outputPath: '/icons',
+    // }),
   ],
 }
