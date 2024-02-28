@@ -2,6 +2,15 @@
 src/arts/
 src/games/
 
+# Converted scripts
+src/**/*.js
+
+# Build entries
+src/index-dev.html
+src/index.html
+index-dev.html
+index.html
+
 # Node gitignore
 # Logs
 logs
