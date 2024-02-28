@@ -1,10 +1,8 @@
-// normalize.css
+// normalize.css reset
 import "normalize.css";
 
 // Fonts
-import "@fontsource/noto-sans-jp";
-import "@fontsource/fira-code";
-import "@fontsource/flow-rounded";
+import "./vendor/fonts.ts";
 
 // Icons
 import "@fortawesome/fontawesome-free/css/all.min.css";
