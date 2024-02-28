@@ -4,7 +4,9 @@
   "author": "nnda",
   "private": true,
   "scripts": {
+    "prestart": "tsc ./src/build-entry.ts && node ./src/build-entry.js",
     "start": "webpack-dev-server --config webpack.dev.js --port 8080",
+    "prebuild": "tsc ./src/build-entry.ts && node ./src/build-entry.js --production",
     "build": "webpack --config webpack.config.js --stats-error-details"
   },
   "dependencies": {
@@ -17,16 +19,20 @@
     "normalize.css": "^8.0.1",
     "parallax-js": "^3.1.0",
     "simple-icons": "^11.3.0",
-    "spinkit": "^2.0.1"
+    "spinkit": "^2.0.1",
+    "typed.js": "^2.1.0"
   },
   "devDependencies": {
+    "copy-webpack-plugin": "^12.0.2",
     "css-loader": "^6.10.0",
     "favicons": "^7.1.5",
     "favicons-webpack-plugin": "^6.0.1",
     "file-loader": "^6.2.0",
-    "handlebars-loader": "^1.7.3",
     "html-bundler-webpack-plugin": "^3.5.2",
     "html-loader": "^5.0.0",
+    "html-webpack-plugin": "^5.6.0",
+    "jquery": "^3.7.1",
+    "jsdom": "^24.0.0",
     "sass": "^1.70.0",
     "sass-loader": "^14.1.0",
     "style-loader": "^3.3.4",
