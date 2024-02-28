@@ -1,6 +1,11 @@
 const simpleIcons = require("simple-icons");
 
-let icons = {};
+// let icons = {};
+let icons : Icons = {};
+
+interface Icons {
+	[key : string] : string
+}
 
 [
 	"siItchdotio",
@@ -28,9 +33,9 @@ let icons = {};
 	"siCsharp",
 	"siCplusplus",
 	"siWolframlanguage",
+
 ].forEach((n) => {
 	let icon = simpleIcons[n];
-	// console.log(n);
 	icons[icon.slug] = icon.svg;
 });
 
